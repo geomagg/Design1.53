@@ -1293,6 +1293,7 @@ def diagram():
 
 
 #---------SINGLE SOURCE
+#
  if nsources == 1:
 
   fig, ax = plt.subplots(figsize=(10, 8))

@@ -1291,6 +1291,11 @@ def diagram():
 
  nsources = nfontes.get()
 
+#---------SINGLE SOURCE
+
+PORRA
+
+
 #-----DUAL SOURCE---------------------------------------------------------------------
  if nsources == 2:
 

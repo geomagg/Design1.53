@@ -1299,17 +1299,17 @@ def diagram():
   fig, ax = plt.subplots(figsize=(10, 8))
   ax.set_title('SHOOTING DIAGRAM  ------    SINGLE  SOURCE ')
 
-  ddx = 12.5              # Lateral distance between two array centers
-  pop = 12.5             # In line poop interval
-  xshot = 1.*pop        # Shot Point Interval
-  yshot = ddx           # Yshot = ddx 
+  ddx = shoty.get()              # Lateral distance between two array centers
+  pop = shotx.get()              # In line poop interval
+  xshot = pop        # Shot Point Interval
   xsail = ddx         # Sail Line Interval
+  yshot = ddx           # Yshot = ddx  
 
 # Plot parameters
-  nshots = 12
+  nshots = 8
   xmax = xsail*nshots        # Plot X max length
   ymax = xshot*nshots-pop    # Plot Y max length
-  ymin = pop/4
+  ymin = 0
   nn = nshots -2                 # Number of shots to plot
 
 # Major ticks every 20, minor ticks every 5
@@ -1329,14 +1329,30 @@ def diagram():
 # Or if you want different settings for the grids:
   ax.grid(which='minor', alpha=0.4)
   ax.grid(which='major', alpha=0.8)
-#---------------------------------------------------------
-#plt.text(795, 560,"Sail line space = ", size=9, rotation=0.,
-#         ha="center", va="center",bbox=dict(boxstyle="round",
-#                   ec=(1., 0.5, 0.5), fc=(1., 0.8, 0.8)))
 
-#plt.text(640, 200, "Pop interval: 20 m", size=9, rotation=90.,
-#         ha="center", va="center",bbox=dict(boxstyle="round",
-#                   ec=(1., 0.5, 0.5),fc=(1., 0.8, 0.8)))
+  factor = 1000./3600.
+  knots = 1.852*factor   
+  vell= velshot.get()*knots
+  extra=float(wd.get())/1500.
+  ttime= round(float(pop/vell+extra),2)
+  timel=str(ttime)
+  binx=str(float(round(nfontes.get()*shotx.get()/2,2)))
+  biny=str(float(round(yshot/2,2)))
+  saill=str(float(shoty.get()))
+
+  plt.text(6*xsail-xsail/5, xshot/6,"BinX x BinY : "+binx+" x "+biny+" m", size=9, rotation=0.,
+         ha="center", va="center",bbox=dict(boxstyle="round",
+                   ec=(1., 0.5, 0.5), fc=(1.0, 0.9, 0.8)))
+
+  plt.text(6*xsail-xsail/5, xshot/6+xshot/3, "Sail Line Interval: "+saill+" m", size=9, rotation=0.,
+         ha="center", va="center",bbox=dict(boxstyle="round",
+                   ec=(1., 0.5, 0.5),fc=(1.0, 0.9, 0.8)))
+
+  plt.text(6*xsail-xsail/5, xshot/6+2*xshot/3, "Max Unblended time: "+timel+" s", size=9, rotation=0.,
+         ha="center", va="center",bbox=dict(boxstyle="round",
+                   ec=(1., 0.5, 0.5),fc=(1.0, 0.9, 0.8)))
+#---------------------------------------------------------
+
 # Vessels
   Shipx = np.arange(xsail,xmax,xsail)
   Shipy = np.empty([len(Shipx)])
@@ -1349,11 +1365,11 @@ def diagram():
   Shotx.fill(xsail)
   for j in range(len(Shipx)):
    for i in range(nn-1):
-     ax.scatter(j*xsail+Shotx,Shoty+i*xshot+pop,s=40,c="blue",alpha=.8 )
+     ax.scatter(j*xsail+Shotx,Shoty+i*xshot+pop,s=60,c="blue",alpha=.8 )
 ######------------------------------------------------------------------------------------
   Liney=[0,ymax-xshot]
   Linex=np.array([xsail,xsail])
-  for j in range(nn): 
+  for j in range(nn+1): 
     ax.plot(Linex, Liney, color='blue', alpha=0.9,linestyle='dashed',
     linewidth=2, solid_capstyle='round', zorder=1, marker="^")
     Linex=Linex + xsail
@@ -1372,7 +1388,7 @@ def diagram():
    pop = shotx.get()              # In line poop interval
    xshot = 2*pop        # Shot Point Interval
    xsail = 2*ddx         # Sail Line Interval
-   yshot = ddx           # Yshot = ddx 
+   yshot = ddx           # Yshot = ddx  
 
 # Plot parameters
    nshots = 6

@@ -612,12 +612,12 @@ def rshots():
      if InsidePoints: # or OutsidePoints:
 
       if nsources ==2:
-        sht.write("%7.2f %7.2f %2i %2i\n" % ((GRIDXX[jj][ii]),(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
-        sht.write("%7.2f %7.2f %2i %2i\n" % ((GRIDXX[jj+adv][ii+adv]),(GRIDYY[jj+adv][ii+adv]),GRIDLN[jj+adv][ii+adv],GRIDPT[jj+adv][ii+adv]))
-        sail.write("%7.2f %7.2f %2i %2i\n" % ((GRIDXX[jj+1][ii+1]),(GRIDYY[jj+1][ii+1]),GRIDLN[jj+1][ii+1],GRIDPT[jj+1][ii+1]))
+        sht.write("%7.2f %7.2f %2f %2f\n" % ((GRIDXX[jj][ii]),(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
+        sht.write("%7.2f %7.2f %2f %2f\n" % ((GRIDXX[jj+adv][ii+adv]),(GRIDYY[jj+adv][ii+adv]),GRIDLN[jj+adv][ii+adv],GRIDPT[jj+adv][ii+adv]))
+        sail.write("%7.2f %7.2f %2f %2f\n" % ((GRIDXX[jj+1][ii+1]),(GRIDYY[jj+1][ii+1]),GRIDLN[jj+1][ii+1],GRIDPT[jj+1][ii+1]))
       if nsources ==1:
-        sht.write("%7.2f %7.2f %2i %2i\n" % (float(GRIDXX[jj][ii]),float(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
-        sail.write("%7.2f %7.2f %2i %2i\n" % (float(GRIDXX[jj][ii]),float(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
+        sht.write("%7.2f %7.2f %2f %2f\n" % (float(GRIDXX[jj][ii]),float(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
+        sail.write("%7.2f %7.2f %2f %2f\n" % (float(GRIDXX[jj][ii]),float(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
       if nsources ==3: 
         sht.write("%7.2f %7.2f %2.1f %2.1f\n" % ((GRIDXX[jj][ii]),(GRIDYY[jj][ii]),GRIDLN[jj][ii],GRIDPT[jj][ii]))
 #        sht.write("%7.2f %7.2f %2.1f %2.1f\n" % ((GRIDXX[jj+adv][ii+adv]),(GRIDYY[jj+adv][ii+adv]),GRIDLN[jj+adv][ii+adv],GRIDPT[jj+adv][ii+adv]))

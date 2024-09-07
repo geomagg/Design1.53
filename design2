@@ -51,7 +51,7 @@ def OpenFile():
    filename = askopenfilename()
 
 def About():
-    print ("Version 1.50 = Marcos Guimaraes")
+    print ("Version 1.53 = Marcos Guimaraes")
 
 menu = Menu(root)
 root.config(menu=menu)
@@ -72,7 +72,7 @@ photo_label = Label(root, image=photo)
 photo_label.image = photo 
 photo_label.grid()
 
-Label(root, text='Design 1.51  ',font=("Sans Bold", 8)).grid(row=0,column=5,sticky=NE)
+Label(root, text='Design 1.53  ',font=("Sans Bold", 8)).grid(row=0,column=5,sticky=NE)
 Frame(root, bg="black",width=400, height=400)
 
 
@@ -510,8 +510,8 @@ def rshots():
  o1=ort1.get()
  ang = anglea*np.pi/180.
  stagger = 0
- nxa=int(rangexa/dxa)
- nya=int(rangeya/dya)
+# nxa=int(rangexa/dxa)
+# nya=int(rangeya/dya)
 
  if nsources==1:
     dxb =dxa
@@ -547,12 +547,12 @@ def rshots():
  upt=0
  progress=1./ntotal
 
- SailLineInterval = dya    # Adjascent arrays separation. 
- SailPointInterval = dyb   # pop interval
- FirstSailLine = 1
- FirstSailLineNumber = 1000
- SailLineIntervalIdx = 1 #int(dya/dyb)
- SailPointIntervalIdx = 1
+## SailLineInterval = dya    # Adjascent arrays separation. 
+## SailPointInterval = dyb   # pop interval
+## FirstSailLine = 1
+## FirstSailLineNumber = 1000
+## SailLineIntervalIdx = 1 #int(dya/dyb)
+## SailPointIntervalIdx = 1
 
  for GridLine in range(0,nny):
     a.update(upt)
@@ -624,7 +624,7 @@ def rshots():
         OutsidePoints = ring.contains(Point([float(GRIDXX[jj+sailint][ii]),float(GRIDYY[jj+sailint][ii])]))
         if DentroPoints or OutsidePoints:
           inc = sailint%2
-          sail.write("%7.2f %7.2f %2i %2i\n" % ((GRIDXX[jj+sailint][ii+inc]),(GRIDYY[jj+sailint][ii+inc]),GRIDLN[jj+sailint][ii+inc],GRIDPT[jj+sailint][ii+inc]))
+          sail.write("%7.2f %7.2f %2f %2f\n" % ((GRIDXX[jj+sailint][ii+inc]),(GRIDYY[jj+sailint][ii+inc]),GRIDLN[jj+sailint][ii+inc],GRIDPT[jj+sailint][ii+inc]))
           sailflag = 1
     if sailflag == 1 :
       sailint=sailint+1
@@ -695,7 +695,6 @@ def pdiagram():
 
 #------------------Plot-----------------------------------
 def plot():
-
 
  if flaggridnode >0:
      fig, ax = plt.subplots(figsize=(8, 8))

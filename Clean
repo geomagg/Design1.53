@@ -1,0 +1,5 @@
+rm shots.txt
+rm grid.txt
+rm sail.txt
+rm polshot.txt
+rm nodes.txt

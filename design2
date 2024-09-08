@@ -64,15 +64,8 @@ helpmenu = Menu(menu)
 menu.add_cascade(label="Help",font=("Sans Bold", 8), menu=helpmenu)
 helpmenu.add_command(label="About", command=About)
 
-<<<<<<< HEAD
-# GEOMAGG LOGO
-
-photo = PhotoImage(file='geomagg3.png')
-# photo = photo.subsample(5)
-=======
 photo = PhotoImage(file='geomagg3.png')
 #photo = photo.subsample(2)
->>>>>>> planout
 photo_label = Label(root, image=photo)
 #photo = photo.resize((20, 20))
 photo_label.image = photo
@@ -448,17 +441,12 @@ def rshots():
  global x0a,y0a,x0b,y0b
  global XXgrid,YYgrid
  global xp3,yp3
-<<<<<<< HEAD
- global ShotArea
- global nsources,nfontes,dxa,dya
-=======
  global NumberofSailPoints
  global NumberofSailLines 
  global ShotArea
  global nsources,nfontes,dxa,dya
  global NumberofShotPoints,NumberofShotLines,AvSailKm_1,AvShotKm_1,TotalShootTimeHours,TotalShootTimeDays
  global ShotsPerKm2,LinearSailKm,LinearShotKm
->>>>>>> planout
  global flagpolishot
 
  xp3,yp3=[],[]
@@ -563,8 +551,6 @@ def rshots():
  upt=0
  progress=1./ntotal
 
-<<<<<<< HEAD
-=======
  ##SailLineInterval = dya    # Adjascent arrays separation. 
  ##SailPointInterval = dyb   # pop interval
  ##FirstSailLine = 1
@@ -572,7 +558,6 @@ def rshots():
  ##SailLineIntervalIdx = 1 #int(dya/dyb)
  ##SailPointIntervalIdx = 1
 
->>>>>>> planout
  for GridLine in range(0,nny):
     a.update(upt)
     for GridPoint in range(0,nnx):
@@ -1265,12 +1250,8 @@ def pdiagram():
 #------------------Plot-----------------------------------
 def plot():
 
-<<<<<<< HEAD
- if flaggridnode >0:
-=======
 
  if flaggridnode >0 or flaggridshot >0:
->>>>>>> planout
      fig, ax = plt.subplots(figsize=(8, 8))
      ax.set_title('OBN survey area')
 

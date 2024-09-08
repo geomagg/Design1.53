@@ -66,10 +66,12 @@ menu.add_cascade(label="Help",font=("Sans Bold", 8), menu=helpmenu)
 helpmenu.add_command(label="About", command=About)
 
 # GEOMAGG LOGO
+
 photo = PhotoImage(file='geomagg3.png')
-photo = photo.subsample(2)
+# photo = photo.subsample(5)
 photo_label = Label(root, image=photo)
-photo_label.image = photo 
+#photo = photo.resize((20, 20))
+photo_label.image = photo
 photo_label.grid()
 
 Label(root, text='Design 1.53  ',font=("Sans Bold", 8)).grid(row=0,column=5,sticky=NE)
@@ -436,11 +438,8 @@ def rshots():
  global x0a,y0a  #,x0b,y0b
  global XXgrid,YYgrid
  global xp3,yp3
- #global NumberofSailLines 
  global ShotArea
  global nsources,nfontes,dxa,dya
- #global NumberofShotPoints,NumberofShotLines,AvSailKm_1,AvShotKm_1,TotalShootTimeHours,TotalShootTimeDays
- #global ShotsPerKm2,LinearSailKm,LinearShotKm
  global flagpolishot
 
  xp3,yp3=[],[]
@@ -510,8 +509,6 @@ def rshots():
  o1=ort1.get()
  ang = anglea*np.pi/180.
  stagger = 0
-# nxa=int(rangexa/dxa)
-# nya=int(rangeya/dya)
 
  if nsources==1:
     dxb =dxa
@@ -546,13 +543,6 @@ def rshots():
  a.open()
  upt=0
  progress=1./ntotal
-
-## SailLineInterval = dya    # Adjascent arrays separation. 
-## SailPointInterval = dyb   # pop interval
-## FirstSailLine = 1
-## FirstSailLineNumber = 1000
-## SailLineIntervalIdx = 1 #int(dya/dyb)
-## SailPointIntervalIdx = 1
 
  for GridLine in range(0,nny):
     a.update(upt)
@@ -692,7 +682,6 @@ def map():
 #---------------------Call Pdiagram --------------------------
 def pdiagram():
  diagram(nfontes.get(),shotx.get(),shoty.get(),velshot.get(),wd.get())
-
 #------------------Plot-----------------------------------
 def plot():
 
@@ -752,4 +741,3 @@ Button(root,text="SpreadSheet",font=("Sans Bold", 7), command=planilha).grid(row
 Button(root,text="FOLD           ",font=("Sans Bold", 7), command=foldm).grid(row=23, column=0,sticky="w")
 
 root.mainloop()
-

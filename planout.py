@@ -385,9 +385,9 @@ def planout (ProjName,Co,Option,Version,espg,
 # Now writing 
  sheet0.write(16,6, sum(new_numbershots),style4b)                              # G17
  sheet0.write(17,6, len(new_shotline),style4b)                                 # G18
- sheet0.write(18,6, round(sum(new_shotlinekm)/len(new_shotline),2),style4b)    # G19
+ sheet0.write(18,6, round(sum(new_shotlinekm)/len(new_shotline),3),style4b)    # G19
  sheet0.write(19,6, sum(new_shotlinekm),style4b)                               # G20
- sheet0.write(22,6, round(sum(new_numbershots)/ShotArea,2),style4b)            # G23
+ sheet0.write(22,6, round(sum(new_numbershots)/ShotArea,3),style4b)            # G23
  sheet0.write(26,6, min(new_numbershots),style4b)                              # G27
  sheet0.write(27,6, max(new_numbershots),style4b)                              # G28
 
@@ -490,7 +490,7 @@ def planout (ProjName,Co,Option,Version,espg,
       kmsail = nfontes*(new_sailpoint[ip]-1)*(shotx/1000.)
       new_saillinekm.append(kmsail)
       tsailhours = chglinetime+kmsail/(velshot*1.852)
-      tsaildays = tsailhours/24
+      tsaildays = tsailhours/24.
       new_saillinehours.append(tsailhours)
       new_saillinedays.append(tsaildays)
 
@@ -498,11 +498,11 @@ def planout (ProjName,Co,Option,Version,espg,
  sheet0.write(23,6, len(new_sailline),style4b)                                 # G24
 ### MODIDIEF FOR 3 SOURCES
  sheet0.write(25,6, sum(new_saillinekm),style4b)                               # G25
- sheet0.write(20,6, round(sum(new_saillinehours),2),style4b)                   # G21
- sheet0.write(21,6, round(sum(new_saillinedays),2),style4b)                    # G22
+ sheet0.write(20,6, round(sum(new_saillinehours),3),style4b)                   # G21
+ sheet0.write(21,6, round(sum(new_saillinedays),3),style4b)                    # G22
 
  #### MODIFIED FOR 3  source
- sheet0.write(24,6, round(sum(new_saillinekm)/len(new_sailline),2),style4b)    # G26
+ sheet0.write(24,6, round(sum(new_saillinekm)/len(new_sailline),3),style4b)    # G26
  print ( "sum(new_saillinekm)/len(new_sailline)",sum(new_saillinekm*nfontes)*len(new_sailline))
 
  sheet7.write(0,0, "Line",style9)
@@ -520,8 +520,8 @@ def planout (ProjName,Co,Option,Version,espg,
      sheet7.write(srow,0,srow,style4b)
      sheet7.write(srow,1,new_sailline[srow-1],style4b)
      sheet7.write(srow,2,nfontes*(new_sailpoint[srow-1]-1)*(shotx/1000.),style4b)
-     sheet7.write(srow,3,round((new_sailpoint[srow-1]-1)*FF+chglinetime,2),style4b)
-     sheet7.write(srow,4,round((new_sailpoint[srow-1]-1)*FF/24,2),style4b)
+     sheet7.write(srow,3,round((new_sailpoint[srow-1]-1)*FF+chglinetime,4),style4b)
+     sheet7.write(srow,4,round((new_sailpoint[srow-1]-1)*FF/24,4),style4b)
      srow+=1
 
 
@@ -529,7 +529,7 @@ def planout (ProjName,Co,Option,Version,espg,
  sheet7.write(srow,1, "LineNum",style9)
  sheet7.write(srow,2, "Line-Km",style9)
  sheet7.write(srow,3, "Line-hours",style9)
- sheet7.write(srow,4, "Line-days",style9a)
+ sheet7.write(srow,4, "Days w/o Line chg",style9a)
 
  sheet7.write(srow+4,0, "",style9)
  sheet7.write(srow+5,0, "",style9)

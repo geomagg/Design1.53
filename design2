@@ -66,10 +66,13 @@ menu.add_cascade(label="Help",font=("Sans Bold", 8), menu=helpmenu)
 helpmenu.add_command(label="About", command=About)
 
 # GEOMAGG LOGO
-photo = PhotoImage(file='geomagg3.png')
+
+photo = PhotoImage(file='geomagg3a.png')
 photo = photo.subsample(2)
 photo_label = Label(root, image=photo)
-photo_label.image = photo 
+photo_label.image = photo
+photo_label.pack(side = "left", fill = "both", expand = "yes")
+
 photo_label.grid()
 
 Label(root, text='Design 1.53  ',font=("Sans Bold", 8)).grid(row=0,column=5,sticky=NE)

@@ -77,7 +77,7 @@ def diagram(nsources,shotx,shoty,velshot,wd):
   Shipx = np.arange(xsail,xmax,xsail)
   Shipy = np.empty([len(Shipx)])
   Shipy.fill(ymax-pop)
-  ax.scatter(Shipx,Shipy,s=120,c="blue",alpha=.8,marker="^")
+  ax.scatter(Shipx,Shipy,s=500,c="blue",alpha=.8,marker="^")
   Shoty = np.arange(100,ymax,100)
 # Center Sources
   Shotx = np.empty([len(Shoty)])
@@ -160,7 +160,7 @@ def diagram(nsources,shotx,shoty,velshot,wd):
    Shipx = np.arange(xsail,xmax,xsail)
    Shipy = np.empty([len(Shipx)])
    Shipy.fill(ymax-pop)
-   ax.scatter(Shipx,Shipy,s=120,c="blue",alpha=.8,marker="^")
+   ax.scatter(Shipx,Shipy,s=500,c="blue",alpha=.8,marker="^")
    Shoty = np.arange(100,ymax,100)
 # Port Source
    Shotx = np.empty([len(Shoty)])
@@ -263,7 +263,7 @@ def diagram(nsources,shotx,shoty,velshot,wd):
    Shipx = np.arange(xsail,xmax,xsail)
    Shipy = np.empty([len(Shipx)])
    Shipy.fill(ymax-pop)
-   ax.scatter(Shipx,Shipy,s=120,c="blue",alpha=.8,marker="^")
+   ax.scatter(Shipx,Shipy,s=500,c="blue",alpha=.8,marker="^")
    Shoty = np.arange(100,ymax,100)
 # Port Source
    Shotx = np.empty([len(Shoty)])

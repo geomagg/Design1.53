@@ -66,13 +66,16 @@ menu.add_cascade(label="Help",font=("Sans Bold", 8), menu=helpmenu)
 helpmenu.add_command(label="About", command=About)
 
 # GEOMAGG LOGO
-photo = PhotoImage(file='geomagg3.png')
-photo = photo.subsample(2)
+
+photo = PhotoImage(file='geomagg3a.png')
+photo = photo.subsample(1)    
 photo_label = Label(root, image=photo)
-photo_label.image = photo 
+photo_label.image = photo
+photo_label.pack(side = "left", fill = "both", expand = "yes")
+
 photo_label.grid()
 
-Label(root, text='Design 1.53  ',font=("Sans Bold", 8)).grid(row=0,column=5,sticky=NE)
+Label(root, text='Design 1.53  ',font=("Sans Bold", 10)).grid(row=0,column=5,sticky=NE)
 Frame(root, bg="black",width=400, height=400)
 
 
@@ -699,10 +702,15 @@ def plot():
  if flaggridnode >0:
      fig, ax = plt.subplots(figsize=(8, 8))
      ax.set_title('OBN survey area')
-
+     
      if var2a.get() == 1:
+      if flagpolishot == 1 :
        ax.plot(xp3, yp3, color='blue', alpha=0.9,
         linewidth=2, solid_capstyle='round', zorder=1)
+
+      else:
+        messagebox.showwarning("Please run:", "FULL COMPUTATION") 
+
 
      if var1a.get() == 1:
        ax.plot(xp, yp, color='red', alpha=0.9,

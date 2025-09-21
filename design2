@@ -51,7 +51,7 @@ def OpenFile():
    filename = askopenfilename()
 
 def About():
-    print ("Version 1.53 = Marcos Guimaraes")
+    print ("Version 1.54 = Marcos Guimaraes")
 
 menu = Menu(root)
 root.config(menu=menu)
@@ -75,7 +75,7 @@ photo_label.pack(side = "left", fill = "both", expand = "yes")
 
 photo_label.grid()
 
-Label(root, text='Design 1.53  ',font=("Sans Bold", 10)).grid(row=0,column=5,sticky=NE)
+Label(root, text='Design 1.54  ',font=("Sans Bold", 10)).grid(row=0,column=5,sticky=NE)
 Frame(root, bg="black",width=400, height=400)
 
 

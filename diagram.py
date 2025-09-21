@@ -271,7 +271,7 @@ def diagram(nsources,shotx,shoty,velshot,wd):
    Shotx.fill(xsail)
    for j in range(len(Shipx)):
     for i in range(nn-1):
-     ax.scatter(j*xsail+Shotx-xshot,Shoty+i*xshot,s=40,c="red",alpha=.8 )
+     ax.scatter(j*xsail+Shotx-yshot,Shoty+i*xshot,s=40,c="red",alpha=.8 )
 # Center Sources
    Shotx = np.empty([len(Shoty)])
    Shoty.fill(ymin)
@@ -285,11 +285,11 @@ def diagram(nsources,shotx,shoty,velshot,wd):
    Shotx.fill(xsail)
    for j in range(len(Shipx)):
     for i in range(nn-1):
-     ax.scatter(j*xsail+Shotx+xshot,Shoty+i*xshot+2*pop,s=40,c="green",alpha=.8 )
+     ax.scatter(j*xsail+Shotx+yshot,Shoty+i*xshot+2*pop,s=40,c="green",alpha=.8 )
 ######------------------------------------------------------------------------------------
    Liney=[0,ymax-xshot]
 # Port Shooting line
-   Linex=np.array([xsail,xsail])-xshot
+   Linex=np.array([xsail,xsail])-yshot
    for j in range(nn): 
     ax.plot(Linex, Liney, color='red', alpha=0.9,linestyle='dashed',
     linewidth=2, solid_capstyle='round', zorder=1, marker="^")
@@ -301,7 +301,7 @@ def diagram(nsources,shotx,shoty,velshot,wd):
     linewidth=2, solid_capstyle='round', zorder=1, marker="^")
     Linex=Linex + xsail
 # SB Shooting Line
-   Linex=np.array([xsail,xsail])+xshot
+   Linex=np.array([xsail,xsail])+yshot
    for j in range(nn): 
     ax.plot(Linex, Liney, color='green', alpha=0.9,linestyle='dashed',
     linewidth=2, solid_capstyle='round', zorder=1, marker="^")
